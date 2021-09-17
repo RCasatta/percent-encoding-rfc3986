@@ -1,0 +1,17 @@
+[package]
+name = "percent-encoding-rfc3986"
+version = "0.1.0"
+authors = ["Martin Habovstiak <martin.habovstiak@gmail.com>", "The rust-url developers"]
+description = "RFC3986-compliant percent encoding and decoding"
+repository = "https://github.com/Kixunil/percent-encoding-rfc3986/"
+license = "MIT/Apache-2.0"
+edition = "2018"
+keywords = ["encoding", "decoding", "escaping", "rfc3986"]
+categories = ["encoding", "no-std", "parser-implementations", "web-programming"]
+
+[features]
+default = ["alloc"]
+alloc = []
+
+[dev-dependencies]
+quickcheck = "1.0.3"
