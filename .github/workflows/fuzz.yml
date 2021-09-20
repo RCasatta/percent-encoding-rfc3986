@@ -1,0 +1,26 @@
+name: Fuzz
+
+on: [push, pull_request]
+
+jobs:
+
+  fuzz:
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        fuzz_target: [round_trip, decode]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: Swatinem/rust-cache@v1.2.0
+        id: cache-fuzz
+        with:
+          key: ${{ matrix.fuzz_target }}
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: nightly
+          override: true
+          profile: minimal
+      - run: cargo install cargo-fuzz
+        if: steps.cache-fuzz.outputs.cache-hit != 'true'
+      - name: fuzz
+        run: cargo +nightly fuzz run ${{ matrix.fuzz_target }} -- -max_total_time=60
