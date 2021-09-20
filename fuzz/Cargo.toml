@@ -18,8 +18,8 @@ percent-encoding-rfc3986 = { path = ".." }
 members = ["."]
 
 [[bin]]
-name = "encode"
-path = "fuzz_targets/encode.rs"
+name = "rt"
+path = "fuzz_targets/rt.rs"
 test = false
 doc = false
 
