@@ -23,4 +23,4 @@ jobs:
       - run: cargo install cargo-fuzz
         if: steps.cache-fuzz.outputs.cache-hit != 'true'
       - name: fuzz
-        run: cargo +nightly fuzz run ${{ matrix.target }} -- -max_total_time=60
+        run: cargo +nightly fuzz run ${{ matrix.fuzz_target }} -- -max_total_time=60
