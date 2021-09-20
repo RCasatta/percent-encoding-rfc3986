@@ -18,8 +18,8 @@ percent-encoding-rfc3986 = { path = ".." }
 members = ["."]
 
 [[bin]]
-name = "rt"
-path = "fuzz_targets/rt.rs"
+name = "round_trip"
+path = "fuzz_targets/round_trip.rs"
 test = false
 doc = false
 
